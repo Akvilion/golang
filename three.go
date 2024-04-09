@@ -2,10 +2,10 @@ package main
 
 import "fmt"
 
-func one() {
-	fmt.Println("Hello")
+func one(word string) {
+	fmt.Println(word)
 }
 
 func main() {
-	one()
+	one("111")
 }
