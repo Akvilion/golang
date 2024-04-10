@@ -7,5 +7,5 @@ func one(word string) {
 }
 
 func main() {
-	one("111")
+	one("hello world")
 }
