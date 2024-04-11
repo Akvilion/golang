@@ -1,7 +1,13 @@
 package main
 
-import "myproject/greeting"
+import (
+	"fmt"
+	"myproject/calc"
+)
 
 func main() {
-	greeting.Hello()
+	a := calc.Add(1, 2)
+	fmt.Println(a)
+	b := calc.Subtract(7, 3)
+	fmt.Println(b)
 }
