@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"myproject/calc"
+	"golang/calc"
 )
 
 func main() {
