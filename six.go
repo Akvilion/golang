@@ -5,7 +5,10 @@
 
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+)
 
 func one(a int) int {
 	return a * 2
@@ -13,7 +16,18 @@ func one(a int) int {
 
 func main() {
 	var x int = 2
+
+	var y *int // змінна яка всередині має вказівник на тип int
+	// щоб в змінну покласти вказівник вома має мати тип вказівника з зірочкою
+	// x int - проста змінна, x *int тут може лежати вказівник на int
+
+	y = &x
+
+	fmt.Println(y)
+
 	fmt.Println(x)
 	fmt.Println(&x) // виводить адресу змінної
+
+	fmt.Println(reflect.TypeOf(&x)) // тип вказівника на int -> *int
 
 }
