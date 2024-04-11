@@ -23,9 +23,14 @@ func main() {
 
 	y = &x
 
-	fmt.Println(y)
+	fmt.Println("виводить вказівник  y ->", y)
+	fmt.Println("значення вказівника y ->", *y)
 
-	fmt.Println(x)
+	*y = 3 // зміна значення по вказівнику
+
+	fmt.Println("значення вказівника y ->", *y)
+	fmt.Println("значення вказівника x ->", x)
+
 	fmt.Println(&x) // виводить адресу змінної
 
 	fmt.Println(reflect.TypeOf(&x)) // тип вказівника на int -> *int
