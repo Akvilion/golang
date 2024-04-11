@@ -2,9 +2,9 @@ package main
 
 import "fmt"
 
-func one() *int {
+func one() *int { // повертаєме значення типу вказівник
 	a := 2
-	return &a
+	return &a // повертаємо вказівник
 }
 
 func main() {
