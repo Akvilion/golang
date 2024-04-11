@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 )
 
 func one(a int, b int) (int, int, error) {
@@ -23,7 +24,7 @@ func main() {
 
 	a, b, err := one(-2, 4)
 	if err != nil { // якщо err недорівнює nill значить сталась помилка
-		fmt.Println(err)
+		log.Fatal(err)
 	} else {
 		fmt.Println(a, b)
 	}
