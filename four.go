@@ -22,7 +22,10 @@ func main() {
 	// fmt.Println(err)
 
 	a, b, err := one(-2, 4)
-	fmt.Println(a, b)
-	fmt.Println(err)
+	if err != nil { // якщо err недорівнює nill значить сталась помилка
+		fmt.Println(err)
+	} else {
+		fmt.Println(a, b)
+	}
 
 }
