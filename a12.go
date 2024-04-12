@@ -19,4 +19,8 @@ func main() {
 		status = "failing"
 	}
 	fmt.Println("A grade of", grade, "is", status)
+	_, err = keyboard.GetFloat()
+	if err != nil {
+		log.Fatal(err)
+	}
 }
