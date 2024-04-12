@@ -11,3 +11,7 @@ go mod tidy
 go get ____________
 
 go mod init xxx
+
+godoc -http=:6060  # сервер з документацією локальний
+http://localhost:6060/pkg
+
