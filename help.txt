@@ -1,0 +1,13 @@
+WIN
+set GOPATH="C:\code"
+
+UNIX
+export GOPATH="/code"
+
+go clean -modcache
+
+go mod tidy
+
+go get ____________
+
+go mod init xxx
