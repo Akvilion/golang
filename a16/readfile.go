@@ -8,11 +8,11 @@ import (
 )
 
 func main() {
-	file, err := os.Open("data.txt")
-	if err != nil { // помилка при відкритті файлу
+	file, err := os.Open("data.txt") // file - це вказівник на відкритий файл
+	if err != nil {                  // помилка при відкритті файлу
 		log.Fatal(err)
 	}
-	scaner := bufio.NewScanner(file)
+	scaner := bufio.NewScanner(file) // читає дані з файла
 	for scaner.Scan() {
 		fmt.Println(scaner.Text())
 	}
@@ -20,7 +20,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	if scaner.Err() != nil {
+	if scaner.Err() != nil { // перевірка на помилку при скануванні
 		log.Fatal(scaner.Err())
 	}
 
