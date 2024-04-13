@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	numbers, err := datafile.GetFloats("../datafile/data.txt")
+	numbers, err := datafile.GetFloats("C:/Projects/golang/src/github.com/headfirstgo/datafile/data.txt")
 	if err != nil {
 		log.Fatal(err)
 	}

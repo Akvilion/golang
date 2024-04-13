@@ -36,4 +36,16 @@ PS C:\Users\codeo\go\bin> .\average.exe
 72.5
 
 
+загон з шляхами
+C:\Projects\golang\src\github.com\headfirstgo\average\main.go
+в тому файлику була лінійка
+numbers, err := datafile.GetFloats("C:/Projects/golang/src/github.com/headfirstgo/datafile/data.txt")
+Я вписав абсолютний шлях
+тому що коли робиш go install src/github.com/headfirstgo/average 
+воно створювало exe файл в C:\Users\codeo\go\bin
+і коли запускав його воно викидувало 2024/04/13 16:58:12 open ../datafile/data.txt: The system cannot find the path specified.
+воно походу шукало data.txt на відносно того exe файлу ../datafile/data.txt
+тобто раз вгору там datafile/data.txt
+тому вписав абсолютний шлях
+
 
