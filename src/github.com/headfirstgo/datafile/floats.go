@@ -6,6 +6,7 @@ import (
 	"strconv"
 )
 
+// читає значення float64 з кожної строки файла
 func GetFloats(fileName string) ([3]float64, error) {
 	var numbers [3]float64
 	file, err := os.Open(fileName)
@@ -15,7 +16,7 @@ func GetFloats(fileName string) ([3]float64, error) {
 	i := 0
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		numbers[i], err := strconv.ParseFloat(scanner.Text(), 64)
+		numbers[i], err = strconv.ParseFloat(scanner.Text(), 64)
 		if err != nil {
 			return numbers, err
 		}
