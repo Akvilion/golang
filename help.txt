@@ -28,3 +28,12 @@ GOPATH
 назначения или в каталоге bin для исполняемых
 программ.
 
+go install average
+скомпілює наш main.go файл і закине його в папку bin
+C:\Users\codeo\go\bin
+Потім ми його можемо запустити з cmd
+PS C:\Users\codeo\go\bin> .\average.exe
+72.5
+
+
+

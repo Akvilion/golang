@@ -8,5 +8,5 @@ func main() {
 	for _, value := range numbers {
 		a += value
 	}
-	fmt.Println(a / 3)
+	fmt.Println(a / float64(len(numbers)))
 }
