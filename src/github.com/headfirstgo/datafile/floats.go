@@ -1,5 +1,7 @@
 package datafile
 
+// package main
+
 import (
 	"bufio"
 	"os"
@@ -14,9 +16,9 @@ func GetFloats(fileName string) ([3]float64, error) {
 		return numbers, err
 	}
 	i := 0
-	scanner := bufio.NewScanner(file)
+	scanner := bufio.NewScanner(file) // читаємо файл в scanner
 	for scanner.Scan() {
-		numbers[i], err = strconv.ParseFloat(scanner.Text(), 64)
+		numbers[i], err = strconv.ParseFloat(scanner.Text(), 64) // перетворення кожної text в float
 		if err != nil {
 			return numbers, err
 		}
@@ -31,3 +33,8 @@ func GetFloats(fileName string) ([3]float64, error) {
 	}
 	return numbers, nil
 }
+
+// func main() {
+// 	num, _ := GetFloats("data.txt")
+// 	fmt.Println(num)
+// }
