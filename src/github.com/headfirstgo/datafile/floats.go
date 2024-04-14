@@ -13,24 +13,24 @@ func GetFloats(fileName string) ([]float64, error) {
 	var numbers []float64
 	file, err := os.Open(fileName)
 	if err != nil {
-		return numbers, err
+		return nil, err
 	}
 	//i := 0
 	scanner := bufio.NewScanner(file) // читаємо файл в scanner
 	for scanner.Scan() {
 		number, err := strconv.ParseFloat(scanner.Text(), 64) // перетворення кожної text в float
 		if err != nil {
-			return numbers, err
+			return nil, err
 		}
 		// i++
 		numbers = append(numbers, number)
 	}
 	err = file.Close()
 	if err != nil {
-		return numbers, err
+		return nil, err
 	}
 	if scanner.Err() != nil {
-		return numbers, scanner.Err()
+		return nil, scanner.Err()
 	}
 	return numbers, nil
 }
