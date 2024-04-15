@@ -53,3 +53,8 @@ func average(numbers ...float64) float64 {}
 var numbers []float64
 average(numbers...)
 
+аналог dict в go
+var ranks map[string]int  // оголошення //string - ключи,  int - значення
+ranks := make(map[string]int)  // створення
+myMap := map[string]float64{"a": 1.2, "b": 5.6}
+
