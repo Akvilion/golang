@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	lines, err := datafile.GetStrings("../datafile/votes.txt") // "../datafile/votes.txt"
+	lines, err := datafile.GetStrings("votes.txt") // "../datafile/votes.txt"
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -17,5 +17,7 @@ func main() {
 	for _, line := range lines {
 		counts[line]++
 	}
-	fmt.Println(counts)
+	for key, value := range counts {
+		fmt.Println(key, value)
+	}
 }

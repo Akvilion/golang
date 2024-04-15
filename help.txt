@@ -74,3 +74,6 @@ ranks := make(map[string]int)
 ranks["bronze"] = 3
 delete(ranks, "bronze")
 
+map в go невпорядкований
+тобто при ітерації церез map 
+друкує кожен раз в різному порядку
