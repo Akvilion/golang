@@ -68,3 +68,9 @@ counters := map[string]int{"a": 3, "b": 0}
 value, ok := counters["a"]  // 3, true
 value, ok := counters["c"]  // 0, false // звернення до відсутнього значення
 _, ok = counters["f"] // перевірка на наявність значення
+
+Видалення ключа
+ranks := make(map[string]int)
+ranks["bronze"] = 3
+delete(ranks, "bronze")
+
