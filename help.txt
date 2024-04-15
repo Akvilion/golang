@@ -56,5 +56,15 @@ average(numbers...)
 аналог dict в go
 var ranks map[string]int  // оголошення //string - ключи,  int - значення
 ranks := make(map[string]int)  // створення
-myMap := map[string]float64{"a": 1.2, "b": 5.6}
+myMap := map[string]float64{"a": 1.2, "b": 5.6}  // якщо літерат то make не треба
 
+Якщо map оголошена але не створена то неможливо добавити якесь значення
+var myMap map[int]string = make(map[int]string)
+myMap[3] = "three"
+А отак можливо
+
+Якщо значення в мапі оголошене 0, а не присвоїне, то ok буде повертати false
+counters := map[string]int{"a": 3, "b": 0}
+value, ok := counters["a"]  // 3, true
+value, ok := counters["c"]  // 0, false // звернення до відсутнього значення
+_, ok = counters["f"] // перевірка на наявність значення
