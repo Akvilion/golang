@@ -2,10 +2,14 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"xxx/src/github.com/headfirstgo/datafile"
 )
 
 func main() {
-	res, _ := datafile.GetStrings("../datafile/votes.txt")
-	fmt.Println(res)
+	lines, err := datafile.GetStrings("votes.txt") // "../datafile/votes.txt"
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(lines)
 }
