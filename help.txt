@@ -48,4 +48,8 @@ numbers, err := datafile.GetFloats("C:/Projects/golang/src/github.com/headfirstg
 тобто раз вгору там datafile/data.txt
 тому вписав абсолютний шлях
 
+щоб використати slice заміть змінної кількості артгументів потрібно ...
+func average(numbers ...float64) float64 {}
+var numbers []float64
+average(numbers...)
 

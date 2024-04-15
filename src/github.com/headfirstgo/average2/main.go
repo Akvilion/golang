@@ -7,16 +7,24 @@ import (
 	"strconv"
 )
 
+func average(numbers ...float64) float64 {
+	var sum float64
+	for _, number := range numbers {
+		sum += number
+	}
+	return sum / float64(len(numbers))
+}
+
 func main() {
-	fmt.Println(os.Args[1:])
-	var sum float64 = 0
 	arguments := os.Args[1:]
+	var numbers []float64
 	for _, argument := range arguments {
 		number, err := strconv.ParseFloat(argument, 64)
 		if err != nil {
 			log.Fatal(err)
 		}
-		sum += number
+		numbers = append(numbers, number)
 	}
-	fmt.Println(sum / float64(len(arguments)))
+	fmt.Println(average(numbers...))
+	// щоб використати slice заміть змінної кількості артгументів потрібно ...
 }
