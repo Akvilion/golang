@@ -1,9 +1,9 @@
-// package datafile
-package main
+package datafile
+
+// package main
 
 import (
 	"bufio"
-	"fmt"
 	"os"
 )
 
@@ -30,7 +30,7 @@ func GetStrings(fileName string) ([]string, error) {
 
 }
 
-func main() {
-	res, _ := GetStrings("votes.txt")
-	fmt.Println(res)
-}
+// func main() {
+// 	res, _ := GetStrings("votes.txt")
+// 	fmt.Println(res)
+// }
