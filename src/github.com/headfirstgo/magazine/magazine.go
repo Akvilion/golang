@@ -2,31 +2,32 @@ package magazine
 
 import "fmt"
 
-type subscriber struct {
+type Subscriber struct {
 	name   string
-	rate   float64
+	Rate   float64
 	active bool
 }
 
-func printInfo(s *subscriber) {
+func printInfo(s *Subscriber) {
 	fmt.Println("Name:", s.name)
-	fmt.Println("Monthly rate:", s.rate)
+	fmt.Println("Monthly rate:", s.Rate)
 	fmt.Println("Active?", s.active)
 }
-func defaultSubscriber(name string) *subscriber {
-	var s subscriber
+func defaultSubscriber(name string) *Subscriber {
+	var s Subscriber
 	s.name = name
-	s.rate = 5.99
+	s.Rate = 5.99
 	s.active = true
 	return &s
 }
-func applyDiscount(s *subscriber) {
-	s.rate = 4.99
+func applyDiscount(s *Subscriber) {
+	s.Rate = 4.99
 }
-func main() {
-	subscriber1 := defaultSubscriber("Aman Singh")
-	applyDiscount(&subscriber1)
-	printInfo(subscriber1)
-	subscriber2 := defaultSubscriber("Beth Ryan")
-	printInfo(subscriber2)
-}
+
+// func main() {
+// 	subscriber1 := defaultSubscriber("Aman Singh")
+// 	applyDiscount(&subscriber1)
+// 	printInfo(subscriber1)
+// 	subscriber2 := defaultSubscriber("Beth Ryan")
+// 	printInfo(subscriber2)
+// }
