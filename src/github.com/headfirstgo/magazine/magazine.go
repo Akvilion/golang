@@ -24,6 +24,11 @@ func applyDiscount(s *Subscriber) {
 	s.Rate = 4.99
 }
 
+type Employee struct {
+	Name   string
+	Salary float64
+}
+
 // func main() {
 // 	subscriber1 := defaultSubscriber("Aman Singh")
 // 	applyDiscount(&subscriber1)
