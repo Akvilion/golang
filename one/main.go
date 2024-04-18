@@ -18,4 +18,9 @@ func main() {
 	employee.Name = "Joy Carr"
 	employee.Salary = 60000
 
+	var address = magazine.Address{Street: "Stusa", City: "Dashava", State: "Lviv", PostalCode: "430001"}
+	employee.HomeAddress = address
+
+	fmt.Println(employee)
+
 }
