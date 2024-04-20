@@ -88,3 +88,14 @@ fmt.Printf("%#v\n", subscriber.HomeAddress)
 наприклад не пусте місце а пуста строка ""
 але потрібно використовувати Printf а не Println
 
+Якщо є анонімне поле
+type Adress strunc {
+    street string
+}
+type people struc {
+    Adress
+}
+то можна упустити Adress при доступі до полів
+а звертатись до street з people
+people.street
+
