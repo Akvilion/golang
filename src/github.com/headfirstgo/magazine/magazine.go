@@ -3,10 +3,11 @@ package magazine
 import "fmt"
 
 type Subscriber struct {
-	Name        string
-	Rate        float64
-	Active      bool
-	HomeAddress Address
+	Name   string
+	Rate   float64
+	Active bool
+	//HomeAddress Address
+	Address
 }
 
 func printInfo(s *Subscriber) {
@@ -26,9 +27,10 @@ func applyDiscount(s *Subscriber) {
 }
 
 type Employee struct {
-	Name        string
-	Salary      float64
-	HomeAddress Address
+	Name   string
+	Salary float64
+	// HomeAddress Address
+	Address // анонімне поле без назви тільки тип
 }
 
 type Address struct {
