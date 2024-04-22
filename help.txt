@@ -99,3 +99,11 @@ type people struc {
 а звертатись до street з people
 people.street
 
+Методи
+ти параметра отримувача є типом з яким зв`язується Методи
+
+type Words string
+
+func (x Words) sayWords () {
+    fmt.Println(x)
+}
