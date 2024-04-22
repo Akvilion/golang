@@ -6,12 +6,12 @@ type Liters float64
 type Mililiters float64
 type Gallons float64
 
-func (x Gallons) toLiters() {
-	fmt.Println(x * 0.286)
+func (g Gallons) toLiters(mul float64) {
+	fmt.Println(float64(g) * mul)
 }
 
 func main() {
-	xxx := Gallons(11.7)
-	xxx.toLiters()
+	xxx := Gallons(22.7)
+	xxx.toLiters(0.286)
 
 }

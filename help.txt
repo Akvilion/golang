@@ -101,9 +101,12 @@ people.street
 
 Методи
 ти параметра отримувача є типом з яким зв`язується Методи
-
 type Words string
-
-func (x Words) sayWords () {
-    fmt.Println(x)
+func (w Words) sayWords () {
+    fmtw.Println(w)
 }
+a := Words("hello")
+a.sayWords()
+// w - параметр отримувача
+
+w ім`я отримувача має бути першою буквою типу Words
