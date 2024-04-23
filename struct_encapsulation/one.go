@@ -8,7 +8,12 @@ type Date struct {
 	Year   int
 }
 
+func (d *Date) SetYear(year int) { // метод отримує копію (d Date) -> (d *Date)
+	d.Year = year
+}
+
 func main() {
-	date := Date{Day: 12, Mounth: 06, Year: 1991}
-	fmt.Println(date)
+	date := Date{}
+	date.SetYear(1991)
+	fmt.Println(date.Year) // 0 - виведе
 }
