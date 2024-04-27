@@ -2,6 +2,11 @@ package gadget
 
 import "fmt"
 
+type Player interface {
+	Play(string)
+	Stop()
+}
+
 type TapePlayer struct {
 	Batteries string
 }

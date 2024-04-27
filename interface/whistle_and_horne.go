@@ -18,8 +18,16 @@ type NoiseMaker interface {
 	MakeSound()
 }
 
+func play(n NoiseMaker) {
+	n.MakeSound()
+}
+
 func main() {
 	var toy NoiseMaker // без оцеї лінійки нічого не заводиться
 	toy = Horn("xxxx")
 	toy.MakeSound()
+	toy = Whistle("wwww")
+	toy.MakeSound()
+
+	play(Horn("aaaa"))
 }
