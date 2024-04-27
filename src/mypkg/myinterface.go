@@ -1,7 +1,7 @@
 package mypkg // назва йде за назвою папки
 import "fmt"
 
-type MyInterface interface {
+type MyInterface interface { // описує тільки те які методи має мати первний тип
 	MethodWithoutParameters()      // метод 1 інтерфейс
 	MethodWithParameter(float64)   // метод 2 інтерфейс
 	MethodWithReturnValue() string // метод 3 інтерфейс
