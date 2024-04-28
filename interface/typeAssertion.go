@@ -1,5 +1,13 @@
 package main
 
+// go утвердження типа
+// go type assertion
+
+// щоб викликати метод типу який не передбачений в інтерфейти
+// потрібно використати
+// var myVariable objType = interfaceVar.(objType)
+// myVariable.methodMissingInUnterface()
+
 import "fmt"
 
 type typeOne string
