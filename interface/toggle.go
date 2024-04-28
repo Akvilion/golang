@@ -20,7 +20,14 @@ type Toggleable interface {
 }
 
 func main() {
-	s := Switch("on")
-	var a Toggleable = s
+	// s := Switch("on") // літерал :=
+	// var a Toggleable = s
+	// a.toggle()
+
+	var a Toggleable = Switch("on") // працює тому що Switch має метод toggle() який потребує Toggleable інтерфейс
 	a.toggle()
+
+	f := Switch("off") // якщо отак записати то "f" не буде мати тип Toggleable інтерфейс!!!
+	f.toggle()
+
 }

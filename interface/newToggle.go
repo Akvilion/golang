@@ -4,13 +4,13 @@ import "fmt"
 
 type Switch string
 
-func (s Switch) toggle() {
-	if s == "on" {
-		s = "off"
+func (s *Switch) toggle() {
+	if *s == "on" {
+		*s = "off"
 	} else {
-		s = "on"
+		*s = "on"
 	}
-	fmt.Println(s)
+	fmt.Println(*s)
 }
 
 type Toggleable interface {
@@ -18,8 +18,8 @@ type Toggleable interface {
 }
 
 func main() {
-	var a Toggleable
-	a = Switch("off")
+	f := Switch("on")     // ініціалізуємо Switch := потрібно замість var f Switch // Switch("on")
+	var a Toggleable = &f // берез вказівник на switch
 	a.toggle()
-
+	a.toggle()
 }
