@@ -141,3 +141,9 @@ func reportPanic() {
 		panic(p)
 	}
 }
+
+справка по командах
+go doc http Get
+go doc http Response
+go doc io ReadCloser
+go doc ioutil ReadAll
