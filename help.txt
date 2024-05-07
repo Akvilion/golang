@@ -121,3 +121,23 @@ coordinates := geo.Coordinates{}
 type MyStruct string
 то вона викликається через круглі дужки
 MyStruct("fffff")
+
+Якщо немає panic то defer повертає nil
+p := recover()
+if p == nil {
+    return
+}
+
+обробник паніки
+func reportPanic() {
+	p := recover()
+	if p == nil {
+		return
+	}
+	err, ok := p.(error)
+	if ok {
+		fmt.Println(err)
+	} else {
+		panic(p)
+	}
+}

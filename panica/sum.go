@@ -8,6 +8,19 @@ import (
 	"strconv"
 )
 
+func reportPanic() {
+	p := recover()
+	if p == nil {
+		return
+	}
+	err, ok := p.(error)
+	if ok {
+		fmt.Println(err)
+	} else {
+		panic(p)
+	}
+}
+
 func OpenFile(fileName string) (*os.File, error) {
 	fmt.Println("Open file", fileName)
 	return os.Open(fileName)
@@ -40,6 +53,9 @@ func GetFloats(fileName string) ([]float64, error) {
 }
 
 func main() {
+
+	defer reportPanic()
+	panic("xxxxxxxxxxxxxx")
 	numbers, err := GetFloats(os.Args[1])
 	if err != nil {
 		log.Fatal(err)

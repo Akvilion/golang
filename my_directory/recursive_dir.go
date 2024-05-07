@@ -6,6 +6,17 @@ import (
 	"os"
 )
 
+func reportPanic() {
+	p := recover()
+	if p == nil {
+		return
+	}
+	err, ok := p.(error)
+	if ok {
+		fmt.Println(err)
+	}
+}
+
 func rec(dir_name string) {
 	files, err := os.ReadDir(dir_name)
 	if err != nil {
@@ -22,5 +33,6 @@ func rec(dir_name string) {
 }
 
 func main() {
+	defer reportPanic()
 	rec("../my_directory")
 }

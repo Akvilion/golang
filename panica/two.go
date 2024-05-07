@@ -3,7 +3,8 @@ package main
 import "fmt"
 
 func one() {
-	recover()
+	// recover()
+	fmt.Println(recover()) // в цьому випадку повернеться те що в panic
 }
 
 func two() {
