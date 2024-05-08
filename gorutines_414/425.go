@@ -8,6 +8,6 @@ func hello(x chan string) {
 
 func main() {
 	x := make(chan string)
-	go hello(x)
+	go hello(x) // має бути горутина щоб дістати chanel
 	fmt.Println(<-x)
 }
