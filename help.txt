@@ -151,3 +151,11 @@ go doc ioutil ReadAll
 створювалорення каналу
 channelA := make(chan int)
 
+Створити list
+urls := []string{"https://example.com/", "https://golang.org/", "https://golang.org/doc"}
+
+
+x:=[2]string{"one", "two"} vs x:=[]string{"one", "two"}
+Passing to Functions: When you pass an array to a function, a copy of the entire array is made.
+In contrast, passing a slice to a function only passes a reference to the underlying array,
+which is more efficient for large data sets.

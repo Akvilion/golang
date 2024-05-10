@@ -24,7 +24,7 @@ func responseSize(url string, chanel chan int) {
 func main() {
 	myChan := make(chan int)
 
-	urls := []string{"https://example.com/", "https://golang.org/", "https://golang.org/doc"}
+	urls := [3]string{"https://example.com/", "https://golang.org/", "https://golang.org/doc"}
 	for _, v := range urls {
 		go responseSize(v, myChan)
 	}
