@@ -18,15 +18,16 @@ func responseSize(url string, chanel chan int) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	// fmt.Println(len(body))
 	chanel <- len(body)
 }
 
 func main() {
 	myChan := make(chan int)
-	go responseSize("https://example.com/", myChan)
-	go responseSize("https://golang.org/", myChan)
-	go responseSize("https://golang.org/doc", myChan)
+
+	urls := []string{"https://example.com/", "https://golang.org/", "https://golang.org/doc"}
+	for _, v := range urls {
+		go responseSize(v, myChan)
+	}
 	fmt.Println(<-myChan)
 	fmt.Println(<-myChan)
 	fmt.Println(<-myChan)
