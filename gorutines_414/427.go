@@ -14,7 +14,7 @@ func reportNap(name string, delay int) {
 }
 
 func send(myChannel chan string) {
-	reportNap("sending goroutine", 2)
+	reportNap("sending goroutine", 2) // зависає на 2 сек
 	fmt.Println("***sending value***")
 	myChannel <- "a"
 	fmt.Println("***sending value***")
@@ -26,7 +26,7 @@ func main() {
 	go send(myChannel)
 	reportNap("receiving goroutine", 5)
 	fmt.Println(<-myChannel)
-	fmt.Println(<-myChannel)s
+	fmt.Println(<-myChannel)
 }
 
 // sending goroutine sleeping
