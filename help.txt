@@ -159,3 +159,8 @@ x:=[2]string{"one", "two"} vs x:=[]string{"one", "two"}
 Passing to Functions: When you pass an array to a function, a copy of the entire array is made.
 In contrast, passing a slice to a function only passes a reference to the underlying array,
 which is more efficient for large data sets.
+
+тести
+якщо тести будуть в пакеті з кодом, то будуть мати доступ до неекспортуємих функцій
+імена тестів повинні починатись з Test
+тестові функції повинні мати 1 параметр (t *testing.T)
