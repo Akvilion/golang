@@ -8,8 +8,8 @@ import (
 func TestTwoElements(t *testing.T) {
 	//t.Error("no test written yet")
 	list := []string{"apple", "orange"}
-	want := "apple, and orange"
-	got := JoinWitCommas(list)
+	want := "apple and orange"
+	got := JoinWithCommas(list)
 	if got != want {
 		t.Error(errorString(list, got, want))
 	}
