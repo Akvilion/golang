@@ -23,6 +23,16 @@ func TestThreeElements(t *testing.T) {
 	}
 }
 
+func TestOneElement(t *testing.T) {
+	list := []string{}
+	want := ""
+	got := JoinWithCommas(list)
+	if got != want {
+		t.Error(errorString(list, got, want))
+	}
+
+}
+
 func errorString(list []string, got string, want string) string {
 	return fmt.Sprintf("JoinWithCommas(%#v) = \"%s\", want \"%s\"", list, got, want)
 }
