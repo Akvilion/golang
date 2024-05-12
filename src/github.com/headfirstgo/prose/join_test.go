@@ -24,13 +24,12 @@ func TestThreeElements(t *testing.T) {
 }
 
 func TestOneElement(t *testing.T) {
-	list := []string{}
-	want := ""
+	list := []string{"apple"}
+	want := "apple"
 	got := JoinWithCommas(list)
 	if got != want {
 		t.Error(errorString(list, got, want))
 	}
-
 }
 
 func errorString(list []string, got string, want string) string {
