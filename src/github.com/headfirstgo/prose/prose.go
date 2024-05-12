@@ -7,6 +7,8 @@ func JoinWithCommas(phrases []string) string {
 		return phrases[0] + " and " + phrases[1]
 	} else if len(phrases) == 1 {
 		return phrases[0]
+	} else if len(phrases) == 0 {
+		return ""
 	} else {
 		result := strings.Join(phrases[:len(phrases)-1], ", ")
 		result += ", and "
