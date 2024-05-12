@@ -1,14 +1,17 @@
 package prose
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestTwoElements(t *testing.T) {
 	//t.Error("no test written yet")
 	list := []string{"apple", "orange"}
-	want := "apple and orange"
-	got := JoinWithCommas(list)
+	want := "apple, and orange"
+	got := JoinWitCommas(list)
 	if got != want {
-		t.Errorf("JoinWithCommas(%#v) = \"%s\", want \"%s\"", list, got, want)
+		t.Error(errorString(list, got, want))
 	}
 }
 func TestThreeElements(t *testing.T) {
@@ -16,6 +19,10 @@ func TestThreeElements(t *testing.T) {
 	want := "apple, orange, and pear"
 	got := JoinWithCommas(list)
 	if got != want {
-		t.Errorf("JoinWithCommas(%#v) = \"%s\", want \"%s\"", list, got, want)
+		t.Error(errorString(list, got, want))
 	}
+}
+
+func errorString(list []string, got string, want string) string {
+	return fmt.Sprintf("JoinWithCommas(%#v) = \"%s\", want \"%s\"", list, got, want)
 }
