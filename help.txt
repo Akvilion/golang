@@ -169,3 +169,8 @@ which is more efficient for large data sets.
 _test.go
 і тоді запуск через папку, а не через файл
 
+go test .\compare\ -v
+розширений вивід
+go test .\compare\ -v -run First
+запустить тести тільки ті які мають в імені First
+
