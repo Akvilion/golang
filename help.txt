@@ -174,3 +174,25 @@ go test .\compare\ -v
 go test .\compare\ -v -run First
 запустить тести тільки ті які мають в імені First
 
+Змінна типу функції
+func sayHi() { fmt.Println("Hi") }
+var myFunction func()
+myFunction = sayHi
+myFunction()
+
+Якщо оголошуємо зміну з типом func()
+то має бути точна кількість параметрів
+var mathFunction func(int, int) float64
+func divide(a int, b int) float64 { return float64(a) / float64(b) }
+mathFunction = divide
+mathFunction(5, 2)
+не вийде покласти в mathFunction sayHi
+func sayHi() { fmt.Println("Hi") }
+
+func doMath(passedFunction func(int, int) float64) {
+	result := passedFunction(10, 2) fmt.Println(result)
+	}
+func multiply(a int, b int) float64 { return float64(a * b) }
+doMath(divide)
+doMath(multiply)
+вказуємо що doMath першим параметром отримує func з 2ма параметрами
