@@ -12,6 +12,11 @@ func check(err error) {
 	}
 }
 
+type Part struct {
+	Name  string
+	Count int
+}
+
 func executeTemplate(text string, data interface{}) {
 
 	tmpl, err := template.New("test").Parse(text)
@@ -26,5 +31,9 @@ func main() {
 
 	executeTemplate("start {{if .}}Dot is true!{{end}} finish\n", true)
 	executeTemplate("start {{if .}}Dot is true!{{end}} finish\n", false)
+
+	templateText := "Name: {{.Name}}\nCount: {{.Count}}\n"
+	executeTemplate(templateText, Part{Name: "Fuses", Count: 5})
+	executeTemplate(templateText, Part{Name: "Cables", Count: 2})
 
 }
