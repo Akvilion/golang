@@ -21,7 +21,10 @@ func executeTemplate(text string, data interface{}) {
 
 }
 func main() {
-	executeTemplate("Dot is: {{.}}!\n", "ABC")
+	executeTemplate("Dot is: {{.}}!\n", "ABC") // замість . підставляється значення!!!
 	executeTemplate("Dot is: {{.}}!\n", 123.5)
+
+	executeTemplate("start {{if .}}Dot is true!{{end}} finish\n", true)
+	executeTemplate("start {{if .}}Dot is true!{{end}} finish\n", false)
 
 }
