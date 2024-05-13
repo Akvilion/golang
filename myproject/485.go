@@ -11,10 +11,17 @@ func check(err error) {
 		log.Fatal(err)
 	}
 }
-func main() {
-	text := "Here's my template!\n"
+
+func executeTemplate(text string, data interface{}) {
+
 	tmpl, err := template.New("test").Parse(text)
 	check(err)
-	err = tmpl.Execute(os.Stdout, nil)
+	err = tmpl.Execute(os.Stdout, data)
 	check(err)
+
+}
+func main() {
+	executeTemplate("Dot is: {{.}}!\n", "ABC")
+	executeTemplate("Dot is: {{.}}!\n", 123.5)
+
 }
