@@ -60,6 +60,7 @@ func createHandler(writer http.ResponseWriter, request *http.Request) {
 	check(err)
 	err = file.Close()
 	check(err)
+	http.Redirect(writer, request, "/guestbook", http.StatusFound)
 
 }
 
