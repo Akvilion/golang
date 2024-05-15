@@ -50,8 +50,14 @@ func newHandler(writer http.ResponseWriter, request *http.Request) {
 	check(err)
 }
 
-func main() {
+func createHandler(writer http.ResponseWriter, request *http.Request) {
+	signature := request.FormValue("signature")
+	_, err := writer.Write([]byte(signature))
+	check(err)
+}
 
+func main() {
+	http.HandleFunc("/guestbook/create", createHandler)
 	http.HandleFunc("/guestbook", viewHandler)
 	http.HandleFunc("/guestbook/new", newHandler)
 	err := http.ListenAndServe("localhost:8080", nil)
