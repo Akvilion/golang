@@ -14,15 +14,20 @@ func check(err error) {
 		log.Fatal(err)
 	}
 }
-func getStrings() {
-	file, err := os.Open("signatures.txt")
-	if err != nil {
-		log.Fatal(err)
+func getStrings(fileName string) []string {
+	var lines []string
+	file, err := os.Open(fileName)
+	if os.IsNotExist(err) {
+		return nil
 	}
+	check(err)
+	defer file.Close()
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
-		fmt.Println(scanner.Text())
+		lines = append(lines, scanner.Text())
 	}
+	check(scanner.Err())
+	return lines
 }
 
 func viewHandler(writer http.ResponseWriter, request *http.Request) {
@@ -32,7 +37,8 @@ func viewHandler(writer http.ResponseWriter, request *http.Request) {
 	check(err)
 }
 func main() {
-	getStrings()
+	f := getStrings("signatures.txt")
+	fmt.Println(f)
 
 	// http.HandleFunc("/guestbook", viewHandler)
 	// err := http.ListenAndServe("localhost:8080", nil)
