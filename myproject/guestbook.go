@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -52,8 +53,14 @@ func newHandler(writer http.ResponseWriter, request *http.Request) {
 
 func createHandler(writer http.ResponseWriter, request *http.Request) {
 	signature := request.FormValue("signature")
-	_, err := writer.Write([]byte(signature))
+	options := os.O_WRONLY | os.O_APPEND | os.O_CREATE
+	file, err := os.OpenFile("signatures.txt", options, os.FileMode(0600))
 	check(err)
+	_, err = fmt.Fprintln(file, signature)
+	check(err)
+	err = file.Close()
+	check(err)
+
 }
 
 func main() {
