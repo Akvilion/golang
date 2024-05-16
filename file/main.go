@@ -13,7 +13,7 @@ func check(err error) {
 	}
 }
 
-func main() {
+func readFile() {
 	fileName := "aardvark.txt"
 	file, err := os.OpenFile(fileName, os.O_RDONLY, os.FileMode(0600))
 	check(err)
@@ -23,4 +23,18 @@ func main() {
 		fmt.Println(scanner.Text())
 	}
 	check(scanner.Err())
+}
+
+func writeFile() { // функція повністю перезаписує файл
+	fileName := "aardvark.txt"
+	file, err := os.OpenFile(fileName, os.O_WRONLY, os.FileMode(0600))
+	check(err)
+	_, err = file.Write([]byte("Some text1111111111"))
+	check(err)
+	err = file.Close()
+	check(err)
+}
+
+func main() {
+	writeFile()
 }
