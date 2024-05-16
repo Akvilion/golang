@@ -221,8 +221,20 @@ fmt.Printf("%016b\n", os.O_APPEND)     //  0000010000000000
 fmt.Printf("%016b\n", os.O_WRONLY|os.O_CREATE)               //  0000000001000001
 fmt.Printf("%016b\n", os.O_WRONLY|os.O_CREATE|os.O_APPEND)   //  0000010001000001
 
-
-
+fmt.Println(os.FileMode(0700))
+fmt.Println(os.FileMode(0070))
+fmt.Println(os.FileMode(0007))
+-rwx------  // власник файлу
+----rwx---  // користувачі з групи
+-------rwx  // всі інші
+0    Разрешения отсутствуют
+1    Исполнение
+2    Запись
+3    Запись, исполнение
+4    Чтение
+5    Чтение, исполнение
+6    Запись, чтение
+7    Запись, чтение, исполнение
 
 
 
