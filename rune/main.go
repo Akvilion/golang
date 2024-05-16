@@ -21,4 +21,12 @@ func main() {
 	utf8RunesPartial := utf8Runes[3:]
 	fmt.Println(string(asciiRunesPartial))
 	fmt.Println(string(utf8RunesPartial))
+
+	// отак правильно ітеруватись, треба по рунах
+	for position, currentRune := range asciiString {
+		fmt.Printf("%d: %s\n", position, string(currentRune))
+	}
+	for position, currentRune := range utf8String {
+		fmt.Printf("%d: %s\n", position, string(currentRune))
+	}
 }
