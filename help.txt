@@ -211,5 +211,18 @@ fmt.Printf("%02b\n", 1&3)  // 01
 fmt.Printf("%02b\n", 2)    // 10
 fmt.Printf("%02b\n", 0)    // 00
 fmt.Printf("%02b\n", 2|0)  // 10
+--------------------------------
+fmt.Printf("%016b\n", os.O_RDONLY)     //  0000000000000000
+fmt.Printf("%016b\n", os.O_WRONLY)     //  0000000000000001
+fmt.Printf("%016b\n", os.O_RDWR)       //  0000000000000010
+fmt.Printf("%016b\n", os.O_CREATE)     //  0000000001000000
+fmt.Printf("%016b\n", os.O_APPEND)     //  0000010000000000
+--------------------------------
+fmt.Printf("%016b\n", os.O_WRONLY|os.O_CREATE)               //  0000000001000001
+fmt.Printf("%016b\n", os.O_WRONLY|os.O_CREATE|os.O_APPEND)   //  0000010001000001
+
+
+
+
 
 
