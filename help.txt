@@ -236,5 +236,7 @@ fmt.Println(os.FileMode(0007))
 6    Запись, чтение
 7    Запись, чтение, исполнение
 
-
+if count := 5; count > 4 {
+	fmt.Println("count is", count)
+}
 
