@@ -17,7 +17,7 @@ func one(x chan string) {
 }
 
 func main() {
-	ch := make(chan string)
+	ch := make(chan string, 2)
 	fmt.Println("main1", time.Now())
 	go one(ch)
 	//time.Sleep(5 * time.Second)
