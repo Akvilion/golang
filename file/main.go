@@ -27,8 +27,12 @@ func readFile() {
 
 func writeFile() { // функція повністю перезаписує файл
 	fileName := "aardvark.txt"
+<<<<<<< Updated upstream
 	options := os.O_WRONLY | os.O_APPEND | os.O_CREATE
 	file, err := os.OpenFile(fileName, options, os.FileMode(0600))
+=======
+	file, err := os.OpenFile(fileName, os.O_APPEND, os.FileMode(0600))
+>>>>>>> Stashed changes
 	check(err)
 	_, err = file.Write([]byte("\nSome text1111111111\n"))
 	check(err)
