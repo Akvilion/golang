@@ -142,6 +142,8 @@ type MyStruct string
 то вона викликається через круглі дужки
 MyStruct("fffff")
 
+defer запускає код в кінці виконання
+
 Якщо немає panic то defer повертає nil
 p := recover()
 if p == nil {
