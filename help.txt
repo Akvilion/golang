@@ -120,7 +120,8 @@ type people struc {
 people.street
 
 Методи
-ти параметра отримувача є типом з яким зв`язується Методи
+тип це аналог класу в пітоні
+тип параметра отримувача є типом з яким зв`язується Методи
 type Words string
 func (w Words) sayWords () {
     fmtw.Println(w)
