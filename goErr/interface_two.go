@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type vehicleMove interface { // задаємо інтерфейс
+type vehicleMove interface { // задаємо інтерфейс який повинен гарантувати реалізацію методу move()
 	move()
 }
 
