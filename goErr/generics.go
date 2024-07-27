@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// в цьому випадку функція зможе приймати любий тип -> x interface{}
+
 func one(x interface{}) {
 	switch t := x.(type) {
 	case int:
