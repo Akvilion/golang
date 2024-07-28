@@ -357,3 +357,10 @@ var x map[int]string
 x = map[int]string{1: "one", 2: "two"}
 
 
+кастомний тип замість constrain
+type customConstraint interface {
+	~int | ~string
+}
+func getKeys[K customConstraint, V any](m map[K]V) []K {
+	// Та же реализация
+}

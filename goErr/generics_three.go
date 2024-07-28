@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// тут є [k comparable, v any] тому що мапа складається з key, value
 func ine[k comparable, v any](x map[k]v) []k {
 	var a []k
 	for k := range x {
