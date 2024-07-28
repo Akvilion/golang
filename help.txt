@@ -349,3 +349,11 @@ func getKeys[K comparable, V any](m map[K]V) []K {
     }
     return keys
 }
+
+
+x := map[int]string{1: "one", 2: "two"}
+==
+var x map[int]string
+x = map[int]string{1: "one", 2: "two"}
+
+
