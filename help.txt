@@ -339,3 +339,13 @@ func main() {
     foo(42) // T буде визначено як int
 }
 Отже, [T any] визначає, що T може бути будь-яким типом, і дозволяє функції foo приймати аргументи будь-якого типу.
+
+
+Якщо функція має приймати map яка може мати любі типи, то тоді треба дженерів для K,V
+func getKeys[K comparable, V any](m map[K]V) []K {
+    var keys []K
+    for k := range m {
+        keys = append(keys, k)
+    }
+    return keys
+}
