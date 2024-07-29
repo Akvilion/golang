@@ -401,5 +401,34 @@ foo.Baz = 42
 Щоб поле було заблоковано ззовні потрібно вказати тип
 
 
+Параметри функцій
+Go не підтримує параметри за замовчуванням, але є способи
+///////////////////////////////////////////////////////////
+func One(name string, message ...string){
+	defaultMessage := "hello"
+	if len(message) == 0 {
+		fmt.Println("%s, %s!\n", defaultMessage, name)
+	}
+}
+///////////////////////////////////////////////////////////
+type One struct {
+	name string
+	age int
+}
+
+func X() *One{
+	return &One{name: "Taras", age: 16}
+}
+func greetWithConfig(cfg *One) {
+    fmt.Printf("%s, %s!\n", cfg.name, cfg.age)
+}
+func main() {
+	a:= X()
+	greetWithConfig(a)
+}
+
+
+Оператор * використовується для доступу до значення за адресою (розіменування вказівника)
+Оператор & використовується для отримання адреси змінної (створення вказівника)
 
 
