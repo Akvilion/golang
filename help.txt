@@ -376,7 +376,10 @@ func constrainMe struc {
 	~int   // всі пити базовим типом яких є int
 	String() string    // реалізує метод String()
 }
-type customInt int
-func (i customInt) String() string {
+type customInt int  // значить це відповідає інтерфейсу constrainMe
+func (i customInt) String() string {  // тут ми реалізуємо тип String() який повертає рядок
 	return strconv.Itoa(int(i))
 }
+У підсумку, тип customInt реалізує інтерфейс constrainMe, оскільки він:
+Сумісний з типом int (оскільки це новий тип на основі int).
+Має метод String(), який повертає рядок.
