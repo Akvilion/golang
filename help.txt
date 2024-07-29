@@ -447,3 +447,14 @@ func main() {
 /vendor — зависимости приложений (например, зависимости модулей Go)
 
 
+Варіантивна кількість параметрів
+func greet(name string, messages ...string) {
+    for _, message := range messages {
+        fmt.Printf("%s, %s!\n", message, name)
+    }
+}
+greet("Alice", "Hello", "Welcome", "Good to see you")
+...string: Дозволяє передавати довільну кількість аргументів без необхідності створювати зріз.
+[]string: Потребує створення зрізу перед передачею у функцію.
+
+
