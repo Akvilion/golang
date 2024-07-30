@@ -606,4 +606,17 @@ copy(msgType, msg)
 рекурсивно обходя два значения
 Reflect.DeepEqual примерно в 100 раз медленнее, чем ==
 
-
+accounts := []account{
+{balance: 100.},
+{balance: 200.},
+{balance: 300.},
+}
+	for _, a := range accounts {
+		a.balance += 1000  // не обновить значення тому що створюються копії
+}
+for i := range accounts {
+	accounts[i].balance += 1000  // обновить значення нормально
+}
+for i := 0; i < len(accounts); i++ {
+	accounts[i].balance += 1000  // обновить значення нормально
+}
