@@ -689,3 +689,21 @@ for i := 0; i < len(s); i++ {
 Оператор & використовується для отримання адреси змінної
 * (Оператор розіменування):
 Оператор * використовується для доступу до значення за адресою
+
+
+
+Щоб зробити параметри який може бути або string або nill потрнібно використовувати вказівник на string
+func processString(s *string) {
+	if s == nil {
+		fmt.Println("Received nil")
+	} else {
+		fmt.Println("Received string:", *s)
+	}
+}
+func main() {
+	str := "Hello, Go!"
+	var nilStr *string = nil
+
+	processString(&str)  // Passing a string
+	processString(nilStr) // Passing nil
+}
