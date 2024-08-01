@@ -57,7 +57,7 @@ func ProcessPayment(p Payer, amount float64) (string, error) {
 func main() {
 	// Пример использования функций
 	masterCard := &MasterCardPayment{}
-	res, err := ProcessPayment(masterCard, 100.50)
+	res, err := ProcessPayment(masterCard, 100.50) // dependency Inversion
 	if err != nil {
 		fmt.Println("Ошибка обработки платежа:", err)
 	} else {
@@ -67,7 +67,7 @@ func main() {
 	// Пример использования функций
 	payPal := &PaypalPayment{}
 	accountStatus := "active"
-	err = payPal.CheckAccountStatus(accountStatus)
+	err = payPal.CheckAccountStatus(accountStatus) // dependency Inversion
 	if err != nil {
 		fmt.Println("Ошибка проверки аккаунта:", err)
 	} else {
