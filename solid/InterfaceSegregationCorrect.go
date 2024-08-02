@@ -5,6 +5,50 @@ import (
 	"fmt"
 )
 
+// тут добавили для кожної структури метод PreprocessChecker щоб прогнати його для всіх
+// це дозволило забрати певний рівень вкладеності з if else коли йшла провірка на те чи
+// платіж paypal
+// просто для не paypal повертається nil
+// оце
+// Пример использования функций
+payPal := &PaypalPayment{}
+accountStatus := "active"
+err = payPal.CheckAccountStatus(accountStatus)
+if err != nil {
+	fmt.Println("Ошибка проверки аккаунта:", err)
+} else {
+	res, err = ProcessPayment(payPal, 100.50)
+	if err != nil {
+		fmt.Println("Ошибка обработки платежа:", err)
+	} else {
+		masterCard.SendNotifications(res)
+	}
+}
+
+// замінити на оце
+payPal := &PaypalPayment{AccountStatus: "active", Amount: 500}
+	masterCard := &MasterCardPayment{Amount: 200}
+
+	payments := []PaymentProcessor{payPal, masterCard}
+
+	for _, payment := range payments {
+		err := PreprocessCheck(payment)
+		if err != nil {
+			fmt.Println("Ошибка первичной проверки платежа:", err)
+			continue
+		}
+
+		res, err := ProcessPayment(payment)
+		if err != nil {
+			fmt.Println("Ошибка обработки платежа:", err)
+			continue
+		}
+
+		SendNotifications(res)
+	}
+
+//////////////////////////////////////////////////////////////////
+
 // Интерфейс для метода оплаты
 type Payer interface {
 	Pay() (string, error)
