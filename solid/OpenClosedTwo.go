@@ -59,7 +59,7 @@ func main() {
 	}
 
 	// Пример использования функций
-	res, err = ProcessPayment("paypal", 100.50, &accountStatus)
+	res, err = ProcessPayment("paypal", 100.50, &accountStatus) // тут &accountStatus accountStatus должен быть не просто string, а *string. То есть он должен быть указателем на string, чтобы мы могли передавать туда и string, и nil в качестве значения.
 	if err != nil {
 		fmt.Println("Ошибка обработки платежа:", err)
 	} else {
