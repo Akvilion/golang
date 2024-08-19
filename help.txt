@@ -1287,11 +1287,12 @@ import (
 )
 
 func main() {
-	ctx, cancel := context.WithCancel(context.Background())
+	ctx, cancel := context.WithCancel(context.Background())  // Створює новий контекст, який можна скасувати, викликавши функцію cancel
+	                                                         // context.Background() -> базовий контекст - заглушка
 	go func() {
 		// Скасовуємо операцію через 2 секунди
 		time.Sleep(2 * time.Second)
-		cancel()
+		cancel()   // В окремій горутині через 2 секунди викликається функція cancel, яка скасовує операцію.
 	}()
 
 	doSomething(ctx)
@@ -1303,8 +1304,12 @@ func doSomething(ctx context.Context) {
 		fmt.Println("Operation completed")
 	case <-ctx.Done():
 		// ctx.Done() канал сповіщає про скасування контексту
-		fmt.Println("Operation canceled:", ctx.Err())
+		fmt.Println("Operation canceled111:", ctx.Err())  // // Оскільки ми скасовуємо операцію через 2 секунди, функція виведе:
 	}
 }
+
+Контекст допомагає зберігати контроль над тривалістю операцій і дозволяє зупинити їх за необхідності,
+що особливо корисно у великих розподілених системах.
+
 
 ################################################################################################

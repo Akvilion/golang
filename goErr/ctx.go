@@ -23,6 +23,6 @@ func doSomething(ctx context.Context) {
 		fmt.Println("Operation completed")
 	case <-ctx.Done():
 		// ctx.Done() канал сповіщає про скасування контексту
-		fmt.Println("Operation canceled:", ctx.Err())
+		fmt.Println("Operation canceled111:", ctx.Err()) // Оскільки ми скасовуємо операцію через 2 секунди, функція виведе:
 	}
 }
