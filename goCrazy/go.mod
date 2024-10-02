@@ -1,3 +1,3 @@
-module gocrazy
+module goCrazy
 
 go 1.23.2
