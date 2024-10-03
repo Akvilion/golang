@@ -28,14 +28,14 @@ func main() {
 	// value
 	n := 42
 	fmt.Println(n)
-	changeVal(n)
-	fmt.Println(n)
+	changeVal(n)   // int передається як копію тому потрібен вказівник
+	fmt.Println(n) // тому тут поверне 42 без змін
 	// with pointer
 	changeVal2(&n)
 	fmt.Println("again ", n)
 
 	//struct
-	p1 := person{
+	p1 := person{ // структура передається через копіювання тому потрібен вказівник щоб поміняти її у функції
 		first: "Todd",
 		age:   45,
 	}
@@ -71,19 +71,19 @@ func changeVal(e int) {
 }
 
 func changeVal2(f *int) {
-	*f *= 2
+	*f *= 2 // якщо передається int по потрібно розіменовувати вказівник *f це отримання значення яке знаходиться під адресою
 }
 
 func changePerson(p person) {
-	p.age = 50
+	p.age = 50 // так працювати не буде бо міняється копія а не саме значення в структурі
 }
 
 func changePerson2(p *person) {
-	p.age = 50
+	p.age = 50 // структури автоматично розіменовуються тому не потрібно вказувати (*p).age = 50
 }
 
 func (p *person) changePerson3() {
-	p.age = 52
+	p.age = 52 // це метод який прив'язаний до структури, ніби метод в класі, це буде працювати
 }
 
 func (p person) changePerson4() {
@@ -100,7 +100,7 @@ func newPerson(s string, n int) (*person, error) {
 		return nil, fmt.Errorf("age must be greater than zero")
 	}
 	p := person{s, n}
-	return &p, nil
+	return &p, nil // ми повертаємо не саму структуру а вказівник на структуру person (&p), що дозволяє економити пам'ять
 }
 
 /*
