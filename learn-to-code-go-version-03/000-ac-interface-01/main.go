@@ -33,7 +33,7 @@ func newSA(p person, n int) (*secretAgent, error) {
 	return &secretAgent{p, n}, nil
 }
 
-type human interface {
+type human interface { // інтерфейси дозволяють передавати в функції будь-які типи, які реалізують методи, зазначені в інтерфейсі.
 	speak()
 }
 
@@ -44,6 +44,8 @@ func saySomething(h human) {
 func main() {
 	p1, _ := newPerson("Moneypenny")
 	sa1, _ := newSA(person{"james"}, 7)
-	saySomething(p1)
+	saySomething(p1) //
 	saySomething(sa1)
+	// Так, будь-яка структура, яка реалізує метод, визначений в інтерфейсі, може бути передана як аргумент в функцію, що приймає цей інтерфейс.
+	// Go використовує duck typing для інтерфейсів: якщо тип реалізує всі методи інтерфейсу, то він автоматично вважається реалізатором цього інтерфейсу, навіть якщо явно не вказано, що тип "імплементує" інтерфейс.
 }
