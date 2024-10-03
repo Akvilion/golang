@@ -5,7 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "program" :"${fileDirname}"
+            "name": "Debug",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${file}",
+            "args": [],                   // If your hello.go program doesn’t require any arguments, you can remove the "args" field
+            "env": {
+                "FORCE_COLOR": "1"
+            },
+            "cwd": "${workspaceFolder}"
         }
+
     ]
 }

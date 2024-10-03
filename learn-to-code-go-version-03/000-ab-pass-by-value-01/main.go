@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-//struct
+// struct
 type person struct {
 	first string
 	age   int
@@ -12,8 +12,8 @@ func main() {
 	//slice
 	xi := []int{1, 2, 3}
 	fmt.Println(xi)
-	changeSlice(xi, 1)
-	fmt.Println(xi)
+	changeSlice(xi, 1) // зріз передається через посилання тому не потрібен вказівник щоб поміняти це в функції
+	fmt.Println(xi)    // {1, 4, 3}
 
 	//map
 	m := map[string]int{
@@ -22,7 +22,7 @@ func main() {
 		"bird": 3,
 	}
 	fmt.Println(m)
-	changeMap(m, "cat")
+	changeMap(m, "cat") // map передається через посилання тому не потрібен вказівник щоб поміняти це в функції
 	fmt.Println(m)
 
 	// value
@@ -89,7 +89,7 @@ func (p *person) changePerson3() {
 func (p person) changePerson4() {
 	//won't work
 	//p.age = 54
-	fmt.Printf("%#v\n",p)
+	fmt.Printf("%#v\n", p)
 }
 
 func newPerson(s string, n int) (*person, error) {
@@ -102,18 +102,19 @@ func newPerson(s string, n int) (*person, error) {
 	p := person{s, n}
 	return &p, nil
 }
+
 /*
-The method set of a type determines the methods that can be called 
-on an operand of that type. 
+The method set of a type determines the methods that can be called
+on an operand of that type.
 
 defined type T
-The method set of a defined type T consists of all methods declared with 
+The method set of a defined type T consists of all methods declared with
 receiver type T.
 
 pointer to a defined type T
-The method set of a pointer to a defined type T 
-(where T is neither a pointer nor an interface) 
-is the set of all methods declared with 
+The method set of a pointer to a defined type T
+(where T is neither a pointer nor an interface)
+is the set of all methods declared with
 receiver *T or T.
 
 */
