@@ -10,7 +10,7 @@ func main() {
 
 func do(x any) {
 	fmt.Printf("Type of x is %T\n", x)
-	switch v := x.(type) { // така конструкція x.(type) має зміст тільки в switch
+	switch v := x.(type) { // така конструкція x.(type) - type switch має зміст тільки в switch
 	case int:
 		fmt.Printf("Twice %v is %v\n", v, v*2)
 	case string:
