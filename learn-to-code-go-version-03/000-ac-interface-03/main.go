@@ -18,7 +18,8 @@ func Flexible(x interface{}) {
 }
 
 // empty interface
-func orLikeThis(x any) {
+func orLikeThis(x any) { // це аліас на interface{}
 	fmt.Printf("%v is of type %T\n", x, x)
 }
+
 // https://pkg.go.dev/builtin#any
