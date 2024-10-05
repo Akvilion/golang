@@ -34,7 +34,8 @@ func info[T dog | cat](t T) string {
 	return fmt.Sprintf("%s %v", animalInfo, t)
 }
 
-func prtInfo[T dog | cat](tt []T) {
+// [T dog | cat]тому узагальнення використовується для обмеження типів елементів зрізу, а не самого зрізу
+func prtInfo[T dog | cat](tt []T) { // тут використовується generic T doc|cat тому що ми вказуємо тип елементів зрізу а не сам зріз
 	for i, t := range tt {
 		fmt.Printf("%d - %s \n", i, info[T](t))
 	}

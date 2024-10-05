@@ -2,13 +2,37 @@ package main
 
 import "fmt"
 
-func main() {
-	xi := []int{1, 2, 3}
-	fmt.Println(xi)
-	changeSlice(xi, 1)
-	fmt.Println(xi)
+type cat struct {
+	name string
+	age  int
 }
 
-func changeSlice(a []int, b int) {
-	a[b] *= 2
+type dog struct {
+	name string
+	age  int
+}
+
+type animal interface{}
+
+func main() {
+	d1 := dog{"dog1", 1}
+	d2 := dog{"dog2", 2}
+	c1 := cat{"cat3", 3}
+
+	xd := []animal{d1, d2, c1}
+	infoCreature(xd)
+}
+
+type createure interface {
+	animal
+}
+
+func info[T createure](t T) string {
+	return fmt.Sprintf("%v", t)
+}
+
+func infoCreature[T createure](tt []T) {
+	for _, v := range tt {
+		fmt.Println(info(v))
+	}
 }

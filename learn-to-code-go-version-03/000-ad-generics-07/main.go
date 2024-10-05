@@ -8,6 +8,11 @@ func areEqual[T comparable](x, y T) bool {
 	return x == y
 }
 
+// any дозволяє використовувати будь-який тип, включно з непорівнюваними типами, такими як слайси, мапи або функції
+// func areEqual[T any](x, y T) bool {
+// 	return x == y
+// }
+
 func main() {
 	fmt.Println(areEqual(42, 43))
 	fmt.Println(areEqual(42, 42))
