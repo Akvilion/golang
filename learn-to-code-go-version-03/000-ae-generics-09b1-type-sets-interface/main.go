@@ -45,7 +45,7 @@ func main() {
 	// using generics
 	xd := []dog{d1, d2}
 	xc := []cat{c1, c2}
-	prtInfo[dog](xd)
+	prtInfo(xd)
 	prtInfo(xc) // type inference here
 }
 
@@ -57,6 +57,6 @@ func info[T dog | cat](t T) string {
 
 func prtInfo[T dog | cat](tt []T) {
 	for i, t := range tt {
-		fmt.Printf("%d - %s \n", i, info[T](t))
+		fmt.Printf("%d - %s \n", i, info(t))
 	}
 }

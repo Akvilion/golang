@@ -7,7 +7,7 @@ func main() {
 	xf := []float64{22.3, 37.7, 55.5}
 
 	fmt.Println(sumInt(xi))
-	fmt.Println(sumNum[int](xi))
+	fmt.Println(sumNum(xi))
 	fmt.Println(sumFloat64(xf))
 	fmt.Println(sumNum(xf)) // type inference
 }
@@ -30,7 +30,7 @@ func sumFloat64(ff []float64) float64 {
 
 // generics
 
-type number interface {
+type number interface { // оце узагальнює тип
 	int | float64
 }
 

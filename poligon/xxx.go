@@ -2,37 +2,44 @@ package main
 
 import "fmt"
 
-type cat struct {
-	name string
-	age  int
-}
+const animalInfo string = `This animal's info is`
 
 type dog struct {
-	name string
-	age  int
+	first string
+	age   int
 }
 
-type animal interface{}
+type cat struct {
+	first string
+	age   int
+}
+
+type animal interface {
+}
+
+func (a animal) voice() {
+	fmt.Println(a.first)
+}
 
 func main() {
-	d1 := dog{"dog1", 1}
-	d2 := dog{"dog2", 2}
-	c1 := cat{"cat3", 3}
+	d1 := dog{"Rover", 7}
+	d2 := dog{"Rufus", 8}
+	c1 := cat{"Fluffy", 42}
+	c2 := cat{"Buffy", 43}
 
-	xd := []animal{d1, d2, c1}
-	infoCreature(xd)
+	// using interface
+	xa := []animal{d1, d2, c1, c2}
+
 }
 
-type createure interface {
-	animal
-}
+// generics
 
-func info[T createure](t T) string {
+func info[T dog | cat](t T) string {
 	return fmt.Sprintf("%v", t)
 }
 
-func infoCreature[T createure](tt []T) {
-	for _, v := range tt {
-		fmt.Println(info(v))
+func prtInfo[T dog | cat](tt []T) {
+	for i, t := range tt {
+		fmt.Printf("%d - %s \n", i, info[T](t))
 	}
 }
