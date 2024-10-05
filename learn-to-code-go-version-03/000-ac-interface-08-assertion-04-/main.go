@@ -25,7 +25,7 @@ func main() {
 		fmt.Println(n)
 	}
 
-	switch i.(type) {
+	switch i.(type) { // swithc assertion
 	case int:
 		fmt.Println("an int")
 	case string:
