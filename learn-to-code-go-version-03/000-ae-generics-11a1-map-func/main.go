@@ -17,16 +17,15 @@ func main() {
 	// output: [2,4,6]
 
 	xi1 := []int{1, 2, 3}
-	xi2 := mapVals(xi1, func(n int) int {
-		return n * 2
-	})
+	xi2 := mapVals(xi1, func(n int) int { return n * 2 }) // це аналог лямбди функції
 
 	fmt.Println(xi1)
 	fmt.Println(xi2)
 
 }
 
-func mapVals(xi []int, mapFunc func(int) int) []int {
+// mapFunc - необхідне ім'я щоб звертатись в тілі функції
+func mapVals(xi []int, mapFunc func(int) int) []int { // mapFunc - це функція вищого порядку
 	var ii = make([]int, len(xi))
 	for i, v := range xi {
 		ii[i] = mapFunc(v)
