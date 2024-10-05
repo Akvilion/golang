@@ -16,6 +16,6 @@ func sumFloat64(x, y float64) float64 {
 	return x + y
 }
 
-func sum[T int | float64](x, y T) T {
+func sum[T int | float64](x, y T) T { // ми вказуємо generic або int або float та вказуємо що повернеться теж generic (любий тип)
 	return x + y
 }

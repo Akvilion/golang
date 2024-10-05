@@ -5,12 +5,12 @@ import "fmt"
 func main() {
 	x := 42
 	f := foo(&x)
-	fmt.Println(f)
+	fmt.Println(*f)
 	fmt.Println("hello")
 }
 
 func foo(n *int) *int {
-	y := 2 * *n
+	y := *n * 2 // 42 * 2 -> 82
 	return &y
 }
 
