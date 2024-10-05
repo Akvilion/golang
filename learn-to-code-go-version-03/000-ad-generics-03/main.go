@@ -22,6 +22,6 @@ func sumFloat64(x, y float64) float64 {
 	return x + y
 }
 
-func sum[T ~int | ~float64](x, y T) T {
+func sum[T ~int | ~float64](x, y T) T { // T може бути типом int або будь-яким типом, що базується на int
 	return x + y
 }

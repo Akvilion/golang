@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type customers int
+type customers int // кастомний тим що базується на int
 
 func main() {
 	fmt.Println(sumInt(42, 43))
@@ -23,7 +23,7 @@ func sumFloat64(x, y float64) float64 {
 }
 
 type numTypes interface {
-	~int | ~float64
+	~int | ~float64 // буде приймати любий тип який базується на int або float
 }
 
 func sum[T numTypes](x, y T) T {

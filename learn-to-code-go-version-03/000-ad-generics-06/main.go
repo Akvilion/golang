@@ -10,7 +10,7 @@ type numTypes interface {
 	constraints.Integer | constraints.Float
 }
 
-func sumNums[T numTypes](xt ...T) T {
+func sumNums[T numTypes](xt ...T) T { // розпаковна аргументів в зріз
 	var result T
 	for _, v := range xt {
 		result += v
