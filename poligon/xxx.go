@@ -5,12 +5,6 @@ import (
 	"sync"
 )
 
-func R(ch chan int) {
-	for i := range ch {
-		fmt.Println(i)
-	}
-}
-
 func One() {
 
 	ch := make(chan int)
@@ -20,7 +14,6 @@ func One() {
 			ch <- i
 		}
 		close(ch)
-		// defer R(ch)
 	}()
 
 	// нічого не виведе так як one завершить свою роботу не чекаючи відпрацювання горутин
@@ -109,9 +102,33 @@ func Five() {
 }
 
 func main() {
-	One()
+	// One()
 	// Two()
 	// Three()
 	// Four()
 	// Five()
+	Six()
+}
+
+func Six() {
+	var wg sync.WaitGroup
+
+	ch := make(chan int)
+	go func() {
+		for i := 0; i < 1000; i++ {
+			wg.Add(1)
+			go func(n int) { // горутини працюють паралельно, і порядок надсилання даних у канал не гарантується
+				ch <- n
+				defer wg.Done() // зменшення на 1
+			}(i)
+
+		}
+		wg.Wait()
+		close(ch)
+	}()
+
+	for i := range ch {
+		fmt.Println(i)
+	} // тому буде виводити 10 55 2 998 18 ... і ще й помилку бо канал не закритий
+
 }
