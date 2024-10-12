@@ -101,7 +101,7 @@ func ThisAlsoAllWorks() {
 	// defined type *T
 	// receiver type T
 
-	p4 := &person{"Miss Moneypenny"}
+	p4 := &person{"Miss Moneypenny"} // означає: "створи новий екземпляр структури person і поверни вказівник на нього".
 	p4.speak()
 	saysomething(p4)
 

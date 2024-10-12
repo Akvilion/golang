@@ -19,6 +19,7 @@ func (p person) speak() {
 	fmt.Println("I'm a civilian and my name is", p.Name)
 }
 
+// Метод, що приймає вказівник (*person), не може бути викликаний на значенні типу person без явного отримання вказівника.
 func (p *person) joke() {
 	fmt.Println("Here is a joke", p.Name)
 }
@@ -51,7 +52,7 @@ func Runnit() {
 	// this doesn't work
 	// tellajoke(p)
 
-	pp := &p
+	pp := &p // Метод, що приймає вказівник (*person), не може бути викликаний на значенні типу person без явного отримання вказівника.
 
 	// this works
 	pp.speak()

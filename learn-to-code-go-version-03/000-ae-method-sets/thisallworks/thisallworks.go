@@ -15,17 +15,18 @@ methods declared with
 receiver *T or T.
 */
 
-
 type animal struct {
 	Name string
 }
 
 func (a animal) np() {
 	fmt.Println("non-pointer method", a.Name)
+	// приймає копію об'єкта animal
 }
 
 func (pa *animal) p() {
 	fmt.Println("pointer method", pa.Name)
+	// працюєш з оригінальним об'єктом
 }
 
 func RunMe() {
