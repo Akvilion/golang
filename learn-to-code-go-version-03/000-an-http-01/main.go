@@ -26,12 +26,16 @@ func main() {
 	*/
 
 	type RcvdData struct {
-		Name         string
-		Public_Repos int
+		Name         string `json:"name"`
+		Public_Repos int    `json:"public_repos"`
 	}
 
 	var rd RcvdData
 	d := json.NewDecoder(resp.Body)
+
+	x := d.Decode(&rd)
+	fmt.Println(x)
+
 	if err := d.Decode(&rd); err != nil {
 		log.Fatalf("error: %s", err)
 	}
