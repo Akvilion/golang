@@ -20,11 +20,11 @@ func TestMultiply(t *testing.T) {
 
 // test table
 func TestSumTable(t *testing.T) {
-	tests := []struct {
+	tests := []struct { // літеральне оголошення тобто зразу ініціалізується
 		xi   []int
 		want int
 	}{
-		{[]int{2, 3}, 5},
+		{[]int{2, 3}, 5}, // зріз може мати не тільки якийсь один тип int string bool а й структуру
 		{[]int{4, 6}, 10},
 		{[]int{11, 12}, 23},
 	}
